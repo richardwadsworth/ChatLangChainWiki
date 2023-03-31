@@ -10,6 +10,9 @@ from langchain.llms import OpenAI
 from langchain.vectorstores.base import VectorStore
 
 
+import os
+import sys
+
 def get_chain(
     vectorstore: VectorStore, question_handler, stream_handler, tracing: bool = False
 ) -> ChatVectorDBChain:

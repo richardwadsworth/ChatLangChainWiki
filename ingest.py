@@ -1,7 +1,8 @@
 """Load html from files, clean up, split, ingest into Weaviate."""
 import pickle
 
-from langchain.document_loaders import ReadTheDocsLoader
+#from langchain.document_loaders import ReadTheDocsLoader
+from read_confluence_wiki_docs import ReadConfluenceWikiDocsLoader
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores.faiss import FAISS
@@ -9,7 +10,8 @@ from langchain.vectorstores.faiss import FAISS
 
 def ingest_docs():
     """Get documents from web pages."""
-    loader = ReadTheDocsLoader("langchain.readthedocs.io/en/latest/")
+    loader = ReadConfluenceWikiDocsLoader("confluence_docs/")
+    
     raw_documents = loader.load()
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=1000,

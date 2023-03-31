@@ -135,5 +135,7 @@ dmypy.json
 
 .DS_Store
 
+# local data
 vectorstore.pkl
 langchain.readthedocs.io/
+confluence_docs/
